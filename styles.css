@@ -1,0 +1,379 @@
+/* 1. CSS CUSTOM PROPERTIES */
+:root {
+    /* Colors */
+    --background-color:#fcf9f3;
+    --surface-color:#f3f3ef; /*f1ede2*/
+    --text-color:#22252a;
+    --muted-color: #5a6065;
+    --accent-color: #284b63;
+    --border-color: #e5dfd3;
+    --white-color: #FFFFFF;
+
+    /* Font sizes */
+    --font-size-body: 1rem;
+    --font-size-site-title: 2.2rem;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 1.8rem;
+    --font-size-h3: 1.35rem;
+    --font-size-nav: 0.95rem;
+    --font-size-small: 0.875rem;
+    --font-size-meta: 0.9rem;
+    --font-size-quote: 1.1rem;    /*ye qoutes k font sizes kliye hota hai*/
+
+    /* Line height */
+    --line-height-body: 1.6;
+
+    /* Spacing */
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Layout widths */
+    --content-width: 70ch;
+    --sidebar-width: 18rem;
+}
+
+/* 2. GENERAL STYLES */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body); /*text (paragraphs) ki lines ke darmiyan ka fasla (line spacing) set karne ke liye*/
+}
+
+/* 3. MAIN WEBSITE HEADER */
+
+body > header {
+    padding: var(--spacing-large) 5%;
+    background-color: var(--surface-color);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.site-title {
+    margin: 0;
+    color: var(--accent-color); /*wo rang jo poari website par sab se zyada high-light ho rha hai yani off-white */
+    font-size: var(--font-size-site-title);
+    font-weight: bold;
+    letter-spacing: 0.04em;
+}
+
+body > header > p:not(.site-title) {
+    margin-top: var(--spacing-small);
+    color: var(--muted-color); /* yeh text ko hlka color deta hai puri website mai jhan jhan use ho */
+}
+
+/* 4. NAVIGATION */
+
+nav {
+    display: flex; /* isy use krny sy items ake hi line mai aa jaty hain */
+    flex-wrap: wrap; /* age items ake line mai pury na ayn tw bachy hoye items ko agli line mai khud ba khud bhjny kliye */
+    justify-content: center;
+    gap: var(--spacing-small);
+    margin-top: var(--spacing-large);
+}
+
+nav a {
+    display: inline-block; /* is sy elements ake box mai set ho jaty hain taaky dosry elements bhi isk brabr set ho jyn jysy home about k links */
+    margin: 0;
+    padding: var(--spacing-small);
+    color: var(--accent-color);
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-nav);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+}
+
+/* 5. MAIN LAYOUT */
+
+main {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-large);
+    width: 90%;
+    max-width: 100rem;
+    margin-inline: auto; /* ye left or right margin kliye use hota hai */
+    padding-block: var(--spacing-xl); /* ye top or bottom padding kliye use hota hai */
+}
+
+/* 6. ARTICLE */
+
+article {
+    flex: 1 1 var(--content-width);
+    min-width: 0;
+    max-width: var(--content-width);
+}
+
+article > header {
+    margin-bottom: var(--spacing-large);
+    padding-bottom: var(--spacing-large);
+    border-bottom: 1px solid var(--border-color);
+}
+
+article h1 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-medium);
+    font-size: var(--font-size-h1);
+    line-height: 1.2;
+    overflow-wrap: anywhere; /*Agar koi lafz  boht lamba hai aur box mein poora nahi aa raha, to use kahin se bhi tor do aur baqi hissa agli line mein le aao*/
+}
+
+article > header p {
+    margin: var(--spacing-small) 0;
+    color: var(--muted-color);
+    font-family: Arial, sans-serif;
+    /* font-size: var(--font-size-meta); */ /* written by saba naz ko chota krny kliye */
+}
+
+article > header time {
+    color: var(--muted-color); /*muted color mtlb phika color krny kliye*/
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-small);
+}
+
+article h2 {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-medium);
+    color: var(--accent-color);
+    font-size: var(--font-size-h2);
+    line-height: 1.3;
+}
+
+article h3 {
+    margin-top: var(--spacing-large);
+    margin-bottom: var(--spacing-small);
+    font-size: var(--font-size-h3);
+    line-height: 1.4;
+}
+
+article p {
+   margin-block: var(--spacing-medium); /*margin-block ka matlab hua Top Margin + Bottom Margin */
+}
+
+/* 7. IMAGES AND FIGCAPTIONS */
+
+figure {
+    margin: var(--spacing-large) 0;
+}
+
+figure img {
+    display: block; /*Yeh element screen ki poori choorai (100% width) gher lega aur kisi doosre element ko apne barabar (side mein) nahi aane dega jysy img k samny ya side mai dosri img nahi aa rhi*/
+
+    width: 100%; /*yeh tasveer k box ki puri width ko ghr leta hai*/
+
+    max-width: 100%; /*Yeh tasveer ko apne asli size (original pixels) se bada hone nahi deta*/
+    
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+figcaption {
+    margin-top: var(--spacing-small);
+    color: var(--muted-color);
+    font-size: var(--font-size-small);
+    line-height: 1.5;
+}
+
+/* 8. BLOCKQUOTE */
+
+blockquote {
+    margin: var(--spacing-large) 0;
+    padding: var(--spacing-medium) var(--spacing-large);
+    /*(medium spacing) box k top or bottom ka faasla, large spacing) box k left or right ka faasla*/
+    background-color: var(--surface-color);
+    border-left: 4px solid var(--accent-color);
+    font-size: var(--font-size-quote);
+    font-style: italic;
+}
+
+blockquote p {
+    margin-top: 0;
+}
+
+blockquote cite {
+    color: var(--muted-color);
+    font-size: var(--font-size-small);
+}
+
+/* 9. ARTICLE LIST */
+
+article ol,
+article ul {
+    padding-left: 1.5rem;
+}
+
+article li {
+    margin-bottom: var(--spacing-small);
+}
+
+/* 10. RELATED STORIES */
+
+aside {
+    flex: 0 0 var(--sidebar-width); /*Is sidebar ke box ko bilkul rigid yaani pakka kar do—yeh na to apni marzi se phailay ga aur na hi pichkay ga, balki hamesha apni fix width par rahega*/
+
+    min-width: 0; /*agr screen pr jga km ho tw Is se text ya links screen se baahar nahi bhagte*/
+
+    margin-block: 0; /*default gap ko bilkul khatam krna taaky apni mrzi sy pading ya dap de skain*/
+
+    padding: var(--spacing-medium);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+}
+
+aside h2 {
+    margin-top: 0;
+    color: var(--accent-color);
+    font-size: var(--font-size-h2);
+}
+
+aside ul {
+    padding-left: 1.25rem;
+}
+
+aside li {
+    margin-bottom: var(--spacing-large);
+}
+
+aside a {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-underline-offset: 0.2em; /*Text ke neeche jo underline lagi hai, use text se thoda sa neche push kar do taake dono aapas mein chipkein nahi*/
+}
+
+aside figure {
+    margin-top: var(--spacing-medium);
+    margin-bottom: 0;
+}
+
+/* 11. LINKS, HOVER AND KEYBOARD FOCUS */
+
+a {
+    text-underline-offset: 0.2em; /*Text ke neeche jo underline lagi hai, use text se thoda sa neche push kar do taake dono aapas mein chipkein nahi*/
+}
+
+main a:hover,
+footer a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+}
+
+/* 12. FOOTER */
+
+footer {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-large) 5%;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+footer p {
+    margin: var(--spacing-small) 0;
+    color: var(--muted-color);
+    font-size: var(--font-size-meta); /*text ko chota kia hai */
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+/* 13. RESPONSIVE DESIGN */
+
+@media (max-width: 600px) {
+    :root {
+        --font-size-site-title: 1.8rem;
+        --font-size-h1: 2rem;
+        --font-size-h2: 1.55rem;
+        --font-size-h3: 1.2rem;
+        --spacing-xl: 2rem;
+    }
+
+    body > header {
+        padding: var(--spacing-large) 1rem;
+    }
+
+    main {
+        flex-direction: column;
+        width: 90%;
+        padding-block: var(--spacing-large); /*Top or Bottom padding ko ek sath target krta hai*/
+    }
+
+    article,
+    aside {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    aside {
+        flex-basis: auto; /*is sy items ki start wali width set krty hain taa ky items bikhrain na*/
+    }
+
+    nav {
+        margin-top: var(--spacing-medium);
+    }
+
+    article figure {
+        margin-inline: 0;
+    }
+
+    blockquote {
+        margin-inline: 0; /*left 0r right margins ko ek sath zero kar deti hai*/
+        padding: var(--spacing-medium);
+    }
+
+    aside {
+        padding: var(--spacing-medium);
+    }
+}
+
+/* 14. PRINT STYLES */
+
+@media print { /*agr koi user page ko print krta hai ya download krta hai tw ye active ho jata hai or un elements ko chupa deta hai jo paper pr achy nai lgty taa ky page clean dikhy*/
+    nav,
+    aside {
+        display: none;
+    }
+
+    body {
+        background: #FFFFFF;
+        color: #000000;
+    }
+
+    main,
+    article {
+        display: block;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: underline;
+    }
+}
