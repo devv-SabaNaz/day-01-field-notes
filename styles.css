@@ -1,17 +1,17 @@
 /* 1. CSS CUSTOM PROPERTIES */
 :root {
     /* Colors */
-    --background-color:#fcf9f3;
-    --surface-color:#f3f3ef; /*f1ede2*/
-    --text-color:#22252a;
-    --muted-color: #5a6065;
-    --accent-color: #284b63;
-    --border-color: #e5dfd3;
+    --background-color:#FFFFFF;
+    --surface-color: #F8F9FA; /*f1ede2*/
+    --text-color: #111111;
+    --muted-color: #5E666D;
+    --accent-color: #B45309;
+    --border-color: #E5E7EB;
     --white-color: #FFFFFF;
 
     /* Font sizes */
-    --font-size-body: 1rem;
-    --font-size-site-title: 2.2rem;
+    --font-size-body: 1.1rem;
+    --font-size-site-title: 2.6rem;
     --font-size-h1: 2.5rem;
     --font-size-h2: 1.8rem;
     --font-size-h3: 1.35rem;
